@@ -3,15 +3,20 @@
       <%= @book.description %><br>
       maximum amount of chapters: <%= @book.maxnumchapt %><br><br>
    <% if !maximum_reached? %>
-      Do you want to contribute? <%= link_to "Contribute", new_book_chapter_path(@book) %>
-       <% else %>
+      Do you want to contribute? <%= link_to "Contribute", new_book_chapter_path(@book) %> <br>
+
+       <%= link_to "Edit", edit_book_path(@book)%>
+       <%= link_to "Delete", book_path(@book), method: :delete, data: { confirm: "Are you sure?" }%>
+      <br>
+
+ <% else %>
    Book completed!
        <% end %>
     </div><br>
 
    <% @book.chapters.each do |chapter| %>
      <div class="imagedropshadow">
-    <%= chapter.chaptertitle %>
+    <%= link_to chapter.chaptertitle, book_chapter_path(@book, chapter) %>
     <%= chapter.chaptercontent %> <%= chapter.chaptercontent.length %>
     <%= chapter.author %>
      </div>

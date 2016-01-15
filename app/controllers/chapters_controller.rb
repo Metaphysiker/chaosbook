@@ -1,6 +1,7 @@
 class ChaptersController < ApplicationController
-  before_action :find_book
-  before_action :find_chapter, only: [:show, :edit, :update, :destroy]
+  before_action :find_book, only: [:new, :create, :update]
+  before_action :find_chapter, only: [:show, :edit, :create, :update, :destroy]
+  before_action :authenticate_user!, only: [:edit, :update, :destroy]
 
   def index
 

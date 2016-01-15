@@ -1,0 +1,16 @@
+
+<h1>Welcome to Chaosbooks!</h1>
+
+Ever had a great idea and a convincing start, but you never could get the job done? Let others finish your work!
+
+<h1>Show all chaosbooks</h1>
+
+<% @books.each do |book| %>
+    <div class="imagedropshadow">
+  Title: <%= book.title %>  <%= link_to "Show", book_path(book) %><br><br>
+      Description: <br>
+  <%= book.description %><br>
+  maximum amount of chapters: <%= book.maxnumchapt %><br>
+    </div>
+<% end %>
+

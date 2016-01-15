@@ -1,0 +1,21 @@
+ <div class="imagedropshadow">
+      <%= @book.title %><br>
+      <%= @book.description %><br>
+      maximum amount of chapters: <%= @book.maxnumchapt %><br><br>
+   <% if !maximum_reached? %>
+      Do you want to contribute? <%= link_to "Contribute", new_book_chapter_path(@book) %>
+       <% else %>
+   Book completed!
+       <% end %>
+    </div><br>
+
+   <% @book.chapters.each do |chapter| %>
+     <div class="imagedropshadow">
+    <%= chapter.chaptertitle %>
+    <%= chapter.chaptercontent %> <%= chapter.chaptercontent.length %>
+    <%= chapter.author %>
+     </div>
+  <% end %>
+<br><br>
+ <%= link_to "Back", root_path %>
+

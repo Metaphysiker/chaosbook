@@ -16,6 +16,7 @@ class BooksController < ApplicationController
 
   def create
     @book = Book.new(book_params)
+    @book.user_id = current_user.id
 
     if @book.min_length >= @book.max_length
       flash.now[:danger] = "Min_length has to be shorter than max_length"
@@ -30,7 +31,10 @@ class BooksController < ApplicationController
   end
 
   def edit
-
+    if !current_user_allowed?
+      flash[:danger] = "You're not allowed"
+      redirect_to root_path
+    end
   end
 
   def update
@@ -55,6 +59,14 @@ class BooksController < ApplicationController
 
   def find_book
     @book = Book.find(params[:id])
+  end
+
+  def current_user_allowed?
+    if current_user.id.nil?
+      return false
+    elsif @book.user_id == current_user.id
+      return true
+    end
   end
 
 end

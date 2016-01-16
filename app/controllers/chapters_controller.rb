@@ -1,5 +1,5 @@
 class ChaptersController < ApplicationController
-  before_action :find_book, only: [:new, :create, :update]
+  before_action :find_book, only: [:show, :new, :create, :update]
   before_action :find_chapter, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:edit, :create, :update, :destroy]
 

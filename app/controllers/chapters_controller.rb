@@ -14,6 +14,7 @@ class ChaptersController < ApplicationController
   def create
     @chapter = Chapter.new(chapter_params)
     @chapter.book_id = @book.id
+    @chapter.user_id = current_user.id
       if maximum_reached?
         flash.now[:danger] = "Book is already finished!"
         redirect_to book_path(@book)

@@ -23,7 +23,7 @@ class ChaptersController < ApplicationController
         render 'new'
       else
         if @chapter.save
-          flash[:success] = "Your Book got created!"
+          flash.now[:success] = "Your Chapter got created!"
           redirect_to book_path(@book)
         else
           render 'new'

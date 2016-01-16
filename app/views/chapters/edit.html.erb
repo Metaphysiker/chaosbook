@@ -1,4 +1,4 @@
-<%= simple_form_for([@book, @chapter]) do |f| %>
+<%= simple_form_for ([@book, @chapter]) do |f| %>
     <%= f.input :chaptertitle %>
     Mininmum amount of characters: <%= @book.min_length %> Maximum amount of characters: <%= @book.max_length %>
     <%= f.input :chaptercontent %>

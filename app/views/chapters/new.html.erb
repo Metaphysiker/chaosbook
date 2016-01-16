@@ -1,8 +1,20 @@
 <%= simple_form_for([@book, @book.chapters.build]) do |f| %>
     <%= f.input :chaptertitle %>
     Mininmum amount of characters: <%= @book.min_length %> Maximum amount of characters: <%= @book.max_length %>
-    <%= f.input :chaptercontent %>
-    <span id="body-count">0 characters</span>
+    <div class="counting" ><%= f.input :chaptercontent %>Characters: <span class="count">0</span></div><br>
     <%= f.input :author %>
     <%= f.button :submit %>
 <% end %>
+
+<script>
+
+  $(document).ready(function(){
+
+    var choosingbar = function( event ){
+      $(event.target).parents(".counting").children(".count").text($(event.target).val().length);
+    };
+
+    $(".counting textarea").keyup(choosingbar);
+  });
+
+</script>

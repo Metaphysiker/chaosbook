@@ -15,6 +15,7 @@ class ChaptersController < ApplicationController
     @chapter = Chapter.new(chapter_params)
     @chapter.book_id = @book.id
     @chapter.user_id = current_user.id
+
       if maximum_reached?
         flash.now[:danger] = "Book is already finished!"
         redirect_to book_path(@book)
@@ -48,6 +49,9 @@ class ChaptersController < ApplicationController
 
   def destroy
     if !current_user_allowed?
+      flash[:danger] = "You're not allowed"
+      redirect_to root_path
+    else
       @chapter.destroy
       redirect_to root_path
     end

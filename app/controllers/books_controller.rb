@@ -48,6 +48,9 @@ class BooksController < ApplicationController
 
   def destroy
     if !current_user_allowed?
+      flash[:danger] = "You're not allowed"
+      redirect_to root_path
+    else
       @book.destroy
       redirect_to root_path
     end

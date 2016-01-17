@@ -23,6 +23,7 @@ class BooksController < ApplicationController
       render 'new'
     else
       if @book.save
+        flash.now[:success] = "Your Book got created!"
         redirect_to book_path(@book)
       else
         render 'new'
@@ -46,8 +47,10 @@ class BooksController < ApplicationController
   end
 
   def destroy
-    @book.destroy
-    redirect_to root_path
+    if !current_user_allowed?
+      @book.destroy
+      redirect_to root_path
+    end
   end
 
 

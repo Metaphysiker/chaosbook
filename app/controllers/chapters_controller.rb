@@ -32,7 +32,10 @@ class ChaptersController < ApplicationController
   end
 
   def edit
-
+    if !current_user_allowed?
+      flash[:danger] = "You're not allowed"
+      redirect_to root_path
+    end
   end
 
   def update
@@ -44,8 +47,10 @@ class ChaptersController < ApplicationController
   end
 
   def destroy
-    @chapter.destroy
-    redirect_to root_path
+    if !current_user_allowed?
+      @chapter.destroy
+      redirect_to root_path
+    end
   end
 
   private
@@ -68,6 +73,14 @@ class ChaptersController < ApplicationController
       return true
     end
     return false
+  end
+
+  def current_user_allowed?
+    if current_user.id.nil?
+      return false
+    elsif (@chapter.user_id == current_user.id) || (@book.user_id == current_user.id)
+      return true
+    end
   end
 
 end

@@ -12,15 +12,7 @@
  <% else %>
    Book completed!
        <% end %>
-    </div><br>
-
-   <% @book.chapters.each do |chapter| %>
-     <div class="imagedropshadow">
-    Chapter <%=chapter.place %>: <%= link_to chapter.chaptertitle, book_chapter_path(@book, chapter) %>
-    <%= chapter.chaptercontent %> <%= chapter.chaptercontent.length %>
-    <%= chapter.author %>
-     </div>
-  <% end %>
+    </div>
 <br><br>
  <%= link_to "Back", root_path %>
  <br>
@@ -28,7 +20,9 @@
  <% while i < @book.maxnumchapt + 1 %>
      Chapter <%= i %>:
      <% if !@book.chapters.find_by_place(i).nil? %>
+     <div class="imagedropshadow">
       <%= @book.chapters.find_by_place(i).chaptertitle %>
+     </div>
      <% else %>
          <div class="imagedropshadow">
          No chapter written yet. Do you want to write it? <%= link_to "Contribute", chapterchapter_path(@book, i ) %>

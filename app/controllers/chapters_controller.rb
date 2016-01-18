@@ -3,6 +3,8 @@ class ChaptersController < ApplicationController
   before_action :find_chapter, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:edit, :create, :update, :destroy]
 
+
+
   def index
 
   end
@@ -15,8 +17,9 @@ class ChaptersController < ApplicationController
     @chapter = Chapter.new(chapter_params)
     @chapter.book_id = @book.id
     @chapter.user_id = current_user.id
+    @chapter.place = params[:chapter][:place]
 
-      if maximum_reached?
+    if maximum_reached?
         flash.now[:danger] = "Book is already finished!"
         redirect_to book_path(@book)
       elsif (@chapter.chaptercontent.length <= @book.min_length) || (@chapter.chaptercontent.length > @book.max_length)
@@ -60,7 +63,7 @@ class ChaptersController < ApplicationController
   private
 
   def chapter_params
-    params.require(:chapter).permit(:chaptertitle, :chaptercontent, :author)
+    params.require(:chapter).permit(:chaptertitle, :chaptercontent, :author, :place)
   end
 
   def find_book
@@ -86,5 +89,4 @@ class ChaptersController < ApplicationController
       return true
     end
   end
-
 end

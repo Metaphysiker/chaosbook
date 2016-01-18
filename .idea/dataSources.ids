@@ -25,6 +25,7 @@
       <column name="updated_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
       <column name="book_id" sqlType="INTEGER" precision="0" scale="-1" nullable="true" jdbcType="4"/>
       <column name="user_id" sqlType="INTEGER" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <column name="place" sqlType="INTEGER" precision="0" scale="-1" nullable="true" jdbcType="4"/>
       <primary-key columns="id"/>
     </table>
     <table name="schema_migrations" schema="" catalog="" type="TABLE">
@@ -49,7 +50,9 @@
       <column name="last_sign_in_ip" sqlType="VARCHAR" precision="0" scale="-1" nullable="true" jdbcType="12"/>
       <column name="created_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
       <column name="updated_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="username" sqlType="VARCHAR" precision="0" scale="-1" nullable="true" jdbcType="12"/>
       <primary-key columns="id"/>
+      <index name="index_users_on_username" unique="true" columns="username"/>
       <index name="index_users_on_reset_password_token" unique="true" columns="reset_password_token"/>
       <index name="index_users_on_email" unique="true" columns="email"/>
     </table>

@@ -18,15 +18,18 @@
 <br>
 <% i = 1 %>
 <% while i < @book.maxnumchapt + 1 %>
+    <div class="imagedropshadow">
     Chapter <%= i %>:
     <% if !@book.chapters.find_by_place(i).nil? %>
-        <div class="imagedropshadow">
           <%= @book.chapters.find_by_place(i).chaptertitle %>
+        <div class="imagedropshadow">
+          <%= @book.chapters.find_by_place(i).chaptercontent %>
         </div>
     <% else %>
         <div class="imagedropshadow">
           No chapter written yet. Do you want to write it? <%= link_to "Contribute", chapterchapter_path(@book, i ) %>
         </div>
     <% end %>
+      </div>
     <% i = i + 1 %><br>
 <% end %>

@@ -3,6 +3,7 @@
     Mininmum amount of characters: <%= @book.min_length %> Maximum amount of characters: <%= @book.max_length %>
     <div class="counting" ><%= f.input :chaptercontent %>Characters: <span class="count"></span></div><br>
     <%= f.input :author %>
+    <%= f.input :place, :as => :hidden, :input_html => { :value => params[:place] } %>
     <%= f.button :submit %>
 <% end %>
 

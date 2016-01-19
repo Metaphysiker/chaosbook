@@ -15,10 +15,14 @@ class ChaptersController < ApplicationController
     @chapter = Chapter.new(chapter_params)
     @chapter.book_id = @book.id
     @chapter.user_id = current_user.id
+    @chapter.place = params[:chapter][:place]
 
       if maximum_reached?
         flash.now[:danger] = "Book is already finished!"
         redirect_to book_path(@book)
+      elsif (chapter_already_used?) || (@book.maxnumchapt < @chapter.place) #Könnte man vielleicht auch mit add_index :chapters, :place, unique: true lösen? Let's find out!
+        flash[:danger] = "Nice try"
+        redirect_to root_path
       elsif (@chapter.chaptercontent.length <= @book.min_length) || (@chapter.chaptercontent.length > @book.max_length)
         flash.now[:danger] = "Total amount of characters must be between #{@book.min_length} and #{@book.max_length}"
         render 'new'
@@ -85,6 +89,15 @@ class ChaptersController < ApplicationController
     elsif (@chapter.user_id == current_user.id) || (@book.user_id == current_user.id)
       return true
     end
+  end
+
+  def chapter_already_used?
+    @book.chapters.each do |f|
+      if f.place == @chapter.place
+        return true
+      end
+    end
+    return false
   end
 
 end

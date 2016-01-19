@@ -1,43 +1,32 @@
- <div class="imagedropshadow">
-      <%= @book.title %><br>
-      <%= @book.description %><br>
-      maximum amount of chapters: <%= @book.maxnumchapt %><br><br>
-   <% if !maximum_reached? %>
+<div class="imagedropshadow">
+  <%= @book.title %><br>
+  <%= @book.description %><br>
+  maximum amount of chapters: <%= @book.maxnumchapt %><br><br>
+  <% if !maximum_reached? %>
       Do you want to contribute? <%= link_to "Contribute", new_book_chapter_path(@book) %> <br>
 
-       <%= link_to "Edit", edit_book_path(@book)%>
-       <%= link_to "Delete", book_path(@book), method: :delete, data: { confirm: "Are you sure?" }%>
+      <%= link_to "Edit", edit_book_path(@book)%>
+      <%= link_to "Delete", book_path(@book), method: :delete, data: { confirm: "Are you sure?" }%>
       <br>
 
- <% else %>
-   Book completed!
-       <% end %>
-    </div><br>
-
-   <% @book.chapters.each do |chapter| %>
-     <div class="imagedropshadow">
-    <%= link_to chapter.chaptertitle, book_chapter_path(@book, chapter) %>
-    <%= chapter.chaptercontent %> <%= chapter.chaptercontent.length %>
-    <%= chapter.author %>
-     </div>
+  <% else %>
+      Book completed!
   <% end %>
+</div>
 <br><br>
- <%= link_to "Back", root_path %>
- <br>
- <% i = 1 %>
- <% while i < @book.maxnumchapt + 1 %>
-     Chapter <%= i %>:
-     <% if !@book.chapters.find_by_place(i).nil? %>
-         <div class="imagedropshadow">
-           <%= @book.chapters.find_by_place(i).chaptertitle %>
-         </div>
-     <% else %>
-         <div class="imagedropshadow">
-           No chapter written yet. Do you want to write it? <%= link_to "Contribute", chapterchapter_path(@book, i ) %>
-         </div>
-     <% end %>
-     <% i = i + 1 %><br>
- <% end %>
-
-
-
+<%= link_to "Back", root_path %>
+<br>
+<% i = 1 %>
+<% while i < @book.maxnumchapt + 1 %>
+    Chapter <%= i %>:
+    <% if !@book.chapters.find_by_place(i).nil? %>
+        <div class="imagedropshadow">
+          <%= @book.chapters.find_by_place(i).chaptertitle %>
+        </div>
+    <% else %>
+        <div class="imagedropshadow">
+          No chapter written yet. Do you want to write it? <%= link_to "Contribute", chapterchapter_path(@book, i ) %>
+        </div>
+    <% end %>
+    <% i = i + 1 %><br>
+<% end %>

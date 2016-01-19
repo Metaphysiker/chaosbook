@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   get ':book_id/chapters/new(.:format)/:place' => 'chapters#new', as: 'chapterchapter'
+
+  get 'users/:user_id(.:format)' => 'profiles#show', as: 'profile'
   # You can have the root of your site routed with "root"
    root 'books#index'
    resources :books do

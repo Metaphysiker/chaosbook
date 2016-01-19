@@ -1,0 +1,14 @@
+<h1>User-Profile</h1><br>
+<%= @user.username %><br>
+<br>
+<br>
+Created Books: <br>
+<% @mybooks.each do |f| %>
+    <%= f.title %><br>
+<% end %><br>
+Contributed Chapters:<br>
+<% @mychapters.each do |f| %>
+    <% booktochapter = find_book_to_chapter(f.book_id) %>
+    Chapter:  <%= f.chaptertitle %> for:  <%= booktochapter.title %><br>
+<% end %>
+

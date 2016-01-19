@@ -12,4 +12,8 @@ module BooksHelper
     @book = Book.find(params[:id])
   end
 
+  def get_user(i)
+    User.find(i)
+  end
+
 end

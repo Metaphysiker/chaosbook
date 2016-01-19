@@ -26,8 +26,8 @@
         <div class="imagedropshadow">
           <%= @book.chapters.find_by_place(i).chaptercontent %>
         </div>
-            <% @userchapter = User.find(@book.chapters.find_by_place(i).user_id) %>
-            Author: <%= @userchapter.username %>
+            <% userchapter = get_user(@book.chapters.find_by_place(i).user_id) %>
+            Author: <%= userchapter.username %>
     <% else %>
         <div class="imagedropshadow">
           No chapter written yet. Do you want to write it? <%= link_to "Contribute", chapterchapter_path(@book, i ) %>

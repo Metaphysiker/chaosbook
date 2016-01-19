@@ -77,7 +77,7 @@ class BooksController < ApplicationController
   end
 
   def get_user
-
+    User.find(:id)
   end
 
 end

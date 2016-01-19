@@ -8,6 +8,7 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
+    @user = User.find(@book.user_id)
   end
 
   def new
@@ -73,6 +74,10 @@ class BooksController < ApplicationController
     elsif @book.user_id == current_user.id
       return true
     end
+  end
+
+  def get_user
+
   end
 
 end

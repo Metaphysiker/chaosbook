@@ -64,7 +64,7 @@ class ChaptersController < ApplicationController
   private
 
   def chapter_params
-    params.require(:chapter).permit(:chaptertitle, :chaptercontent, :author)
+    params.require(:chapter).permit(:chaptertitle, :chaptercontent)
   end
 
   def find_book

@@ -1,6 +1,11 @@
 <h1>User-Profile</h1><br>
 <%= @user.username %><br>
 <br>
+Profile: <br>
+   About me:  <%= @myprofile.about %><br>
+    My interests: <%= @myprofile.interests %><br>
+    My CV: <%= @myprofile.cv %><br>
+<br>
 <br>
 Created Books: <br>
 <% @mybooks.each do |f| %>

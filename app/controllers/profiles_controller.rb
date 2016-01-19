@@ -2,9 +2,9 @@ class ProfilesController < ApplicationController
   before_action :find_user
 
   def show
-    @user = User.find(params[:user_id])
     @mychapters = Chapter.where(user_id: @user.id)
     @mybooks = Book.where(user_id: @user.id)
+    @myprofile = Profile.find_by_user_id(@user.id)
   end
 
   private

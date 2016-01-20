@@ -14,7 +14,8 @@ Profile: <br>
     My CV:
 <% if !@myprofile.cv.nil? %>
     <%= @myprofile.cv %>
-<%end %><br>
+<%end %><br><br>
+    <%= link_to "Edit Profile", edit_profile_path(@myprofile.user_id) %>
     <% else %>
     <%= link_to "Add your informations here!",  new_profile_path %>
 <% end %>

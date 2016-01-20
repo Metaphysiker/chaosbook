@@ -9,17 +9,24 @@ class ProfilesController < ApplicationController
   end
 
   def new
-    @profile = Profile.new
+      @profile = Profile.new
+
   end
 
   def create
     @profile = Profile.new(profile_params)
     @profile.user_id = current_user.id
-    if @profile.save
-      flash.now[:success] = "Your profile got created!"
-      redirect_to root_path
+
+    if current_user_allowed?
+      if @profile.save
+        flash.now[:success] = "Your profile got created!"
+        redirect_to root_path
+      else
+        render 'new'
+      end
     else
-      render 'new'
+      flash[:danger] = "You're not allowed"
+      redirect_to root_path
     end
   end
 
@@ -42,7 +49,9 @@ class ProfilesController < ApplicationController
       return false
     elsif @profile.user_id == current_user.id
       return true
-    end
+    else
+      return false
+     end
   end
 
 end

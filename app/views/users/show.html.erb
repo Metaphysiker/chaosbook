@@ -12,4 +12,6 @@ Contributed Chapters:<br>
     Chapter:  <%= f.chaptertitle %> for:  <%= booktochapter.title %><br>
 <% end %><br>
 <br>
-<%= link_to 'Edit profile', edit_user_registration_path %>
+<% if current_user.id == @user.id %>
+  <%= link_to 'Edit profile', edit_user_registration_path %>
+<% end %>

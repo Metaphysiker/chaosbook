@@ -10,4 +10,6 @@ Contributed Chapters:<br>
 <% @mychapters.each do |f| %>
     <% booktochapter = find_book_to_chapter(f.book_id) %>
     Chapter:  <%= f.chaptertitle %> for:  <%= booktochapter.title %><br>
-<% end %>
+<% end %><br>
+<br>
+<%= link_to 'Edit profile', edit_user_registration_path %>

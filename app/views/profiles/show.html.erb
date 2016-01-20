@@ -15,6 +15,8 @@ Profile: <br>
 <% if !@myprofile.cv.nil? %>
     <%= @myprofile.cv %>
 <%end %><br>
+    <% else %>
+    <%= link_to "Add your informations here!",  new_profile_path %>
 <% end %>
 <br>
 <br>

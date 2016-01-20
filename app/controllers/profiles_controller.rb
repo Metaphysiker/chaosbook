@@ -1,5 +1,6 @@
 class ProfilesController < ApplicationController
-  before_action :find_user
+  before_action :find_user, only: [:show]
+  before_action :authenticate_user!, only: [:edit, :create, :update, :destroy]
 
   def show
     @mychapters = Chapter.where(user_id: @user.id)
@@ -12,7 +13,14 @@ class ProfilesController < ApplicationController
   end
 
   def create
-
+    @profile = Profile.new(profile_params)
+    @profile.user_id = current_user.id
+    if @profile.save
+      flash.now[:success] = "Your profile got created!"
+      redirect_to root_path
+    else
+      render 'new'
+    end
   end
 
   def edit
@@ -23,6 +31,18 @@ class ProfilesController < ApplicationController
 
   def find_user
     @user = User.find(params[:user_id])
+  end
+
+  def profile_params
+    params.require(:profile).permit(:about, :interests, :cv)
+  end
+
+  def current_user_allowed?
+    if current_user.id.nil?
+      return false
+    elsif @profile.user_id == current_user.id
+      return true
+    end
   end
 
 end

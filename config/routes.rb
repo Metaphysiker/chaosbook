@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
   get ':book_id/chapters/new(.:format)/:place' => 'chapters#new', as: 'chapterchapter'
 
-  get 'users/:user_id(.:format)' => 'profiles#show', as: 'profile'
+  get 'profiles/:user_id(.:format)' => 'profiles#show', as: 'profile'
   resources :profiles
 
   get 'about' => 'about#index', as: 'about'

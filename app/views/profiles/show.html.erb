@@ -15,9 +15,15 @@ Profile: <br>
 <% if !@myprofile.cv.nil? %>
     <%= @myprofile.cv %>
 <%end %><br><br>
-    <%= link_to "Edit Profile", edit_profile_path(@myprofile.user_id) %>
+      <% if current_user.id == @myprofile.user_id %>
+        <%= link_to "Edit Profile", edit_profile_path(@user) %>
+      <% end %>
     <% else %>
-    <%= link_to "Add your informations here!",  new_profile_path %>
+      <% if !@myprofile.nil? %>
+        <% if current_user.id == @myprofile.user_id %>
+            <%= link_to "Add your informations here!",  new_profile_path %>
+        <% end %>
+      <% end %>
 <% end %>
 <br>
 <br>

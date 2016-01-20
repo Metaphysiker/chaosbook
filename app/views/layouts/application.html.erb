@@ -22,10 +22,10 @@
     </div>
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-        <li class="active"><%= link_to "Chaosbook", root_path %></li>
-        <li class="active"><%= link_to "new Chaosbook", new_book_path %></li>
+        <li class="passive"><%= link_to "Chaosbook", root_path %></li>
         <% if user_signed_in? %>
-          <li class="active"><%= link_to "My profile", profile_path(current_user.username) %></li>
+          <li class="passive"><%= link_to "new Chaosbook", new_book_path %></li>
+          <li class="passive"><%= link_to "My profile", profile_path(current_user.username) %></li>
         <% end %>
       </ul>
       <p class="navbar-text pull-right">

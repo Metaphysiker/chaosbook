@@ -1,5 +1,5 @@
 <div class="imagedropshadow">
-  <h1><%= @book.title %></h1><br>
+  <h1><%= @book.title %></h1>
   <div class="imagedropshadow">
   <%= @book.description %><br>
   <%= link_to @user.username, profile_path(@user.username) %><br>
@@ -11,12 +11,10 @@
         <%= link_to "Delete", book_path(@book), method: :delete, data: { confirm: "Are you sure?" }%>
       <% end %>
   <% else %>
-      Book completed!
+      Book completed!<br>
   <% end %>
+  <%= link_to "Back", root_path %>
 </div>
-<br><br>
-<%= link_to "Back", root_path %>
-<br>
 <% i = 1 %>
 <% while i < @book.maxnumchapt + 1 %>
     <div class="imagedropshadow">
@@ -34,5 +32,5 @@
         </div>
     <% end %>
       </div>
-    <% i = i + 1 %><br>
+    <% i = i + 1 %>
 <% end %>

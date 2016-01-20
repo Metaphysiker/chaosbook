@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   get ':book_id/chapters/new(.:format)/:place' => 'chapters#new', as: 'chapterchapter'
 
   get 'users/:user_id(.:format)' => 'profiles#show', as: 'profile'
+
+  get 'about' => 'about#index', as: 'about'
   # You can have the root of your site routed with "root"
    root 'books#index'
    resources :books do

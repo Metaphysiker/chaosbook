@@ -4,8 +4,8 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :username, required: true, autofocus: true %> Will be publicy displayed!
-    <%= f.input :email, required: true %> Will NOT be publicly displayed!
+    <%= f.input :username, label: "Username      (will be pubicly displayed)", required: true, autofocus: true %>
+    <%= f.input :email, label: "eMail       (will NOT be publicly displayed)", required: true %>
     <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
     <%= f.input :password_confirmation, required: true %>
   </div>

@@ -20,7 +20,7 @@ class ChaptersController < ApplicationController
       if maximum_reached?
         flash.now[:danger] = "Book is already finished!"
         redirect_to book_path(@book)
-      elsif (chapter_already_used?) || (@book.maxnumchapt < @chapter.place) #Könnte man vielleicht auch mit add_index :chapters, :place, unique: true lösen? Let's find out!
+      elsif (chapter_already_used?) || ((@book.maxnumchapt < @chapter.place) || @chapter.place <=0 )#Könnte man vielleicht auch mit add_index :chapters, :place, unique: true lösen? Let's find out!
         flash[:danger] = "Nice try"
         redirect_to root_path
       elsif (@chapter.chaptercontent.length <= @book.min_length) || (@chapter.chaptercontent.length > @book.max_length)

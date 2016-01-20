@@ -1,7 +1,7 @@
 <div class="imagedropshadow">
   <h1><%= @book.title %></h1><br>
   <%= @book.description %><br>
-  <%= @user.username %><br>
+  <%= link_to @user.username, profile_path(@user.username) %><br>
   maximum amount of chapters: <%= @book.maxnumchapt %><br><br>
   <% if !maximum_reached? %>
       <% if current_user.id == @book.user_id %>
@@ -25,7 +25,7 @@
           <%= @book.chapters.find_by_place(i).chaptercontent %>
         </div>
             <% @userchapter = User.find(@book.chapters.find_by_place(i).user_id) %>
-            Author: <%= @userchapter.username %>
+            Author: <%= link_to @userchapter.username, profile_path(@userchapter.username) %>
     <% else %>
         <div class="imagedropshadow">
           No chapter written yet. Do you want to write it? <%= link_to "Contribute", chapterchapter_path(@book, i ) %>

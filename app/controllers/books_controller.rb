@@ -3,7 +3,7 @@ class BooksController < ApplicationController
   before_action :authenticate_user!, only: [:edit, :update, :destroy]
 
   def index
-    @books = Book.all
+    @books = Book.all.reverse_order
   end
 
   def show

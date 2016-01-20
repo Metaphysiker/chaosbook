@@ -1,7 +1,9 @@
 <div class="imagedropshadow">
   <h1><%= @book.title %></h1><br>
+  <div class="imagedropshadow">
   <%= @book.description %><br>
   <%= link_to @user.username, profile_path(@user.username) %><br>
+  </div>
   maximum amount of chapters: <%= @book.maxnumchapt %><br><br>
   <% if !maximum_reached? %>
       <% if current_user.id == @book.user_id %>

@@ -52,3 +52,10 @@ a:hover img.imagedropshadow {
     -webkit-box-shadow: 1px 1px 5px #999;
     box-shadow: 1px 1px 5px #999;
 }
+
+.profiletabelle {
+     border-collapse: collapse;
+     padding: 5px;
+     text-align: left;
+    padding-right: 10px;
+}

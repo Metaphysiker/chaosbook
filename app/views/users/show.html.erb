@@ -1,18 +1,30 @@
-<h1>User Profile</h1><br>
-<br>
-<%= @user.username %><br>
-<br>
+<h1><%= @user.username %></h1>
+<div class="imagedropshadow">
 About me: <%= @user.about %><br>
+</div><br>
 
-Created Books: <br>
-<% @mybooks.each do |f| %>
-    <%= f.title %><br>
-<% end %><br>
-Contributed Chapters:<br>
-<% @mychapters.each do |f| %>
-    <% booktochapter = find_book_to_chapter(f.book_id) %>
-    Chapter:  <%= f.chaptertitle %> for:  <%= booktochapter.title %><br>
-<% end %><br>
+<table style="width:100%">
+  <tr>
+    <th>Created Books: </th>
+    <th>Contributed Chapters: </th>
+  </tr>
+      <tr>
+        <td style="vertical-align:top">
+        <% @mybooks.each do |f| %>
+          <%= link_to f.title, book_path(f) %><br>
+        <% end %></td>
+    <td style="vertical-align:top">
+      <table class="profiletabelle">
+      <% @mychapters.each do |f| %>
+            <tr>
+          <% booktochapter = find_book_to_chapter(f.book_id) %>
+         <td> Chapter:  <%= link_to f.chaptertitle, book_chapter_path(booktochapter, f) %></td><td>  for:  <%= link_to booktochapter.title, book_path(booktochapter) %>
+      <% end %>
+        </td>
+        </tr>
+      </table>
+  </tr>
+</table>
 <br>
 <% if current_user.id == @user.id %>
   <%= link_to 'Edit profile', edit_user_registration_path %>

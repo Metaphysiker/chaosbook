@@ -2,7 +2,6 @@
     <%= f.input :chaptertitle %>
     Mininmum amount of characters: <%= @book.min_length %> Maximum amount of characters: <%= @book.max_length %>
     <div class="counting" ><%= f.input :chaptercontent %>Characters: <span class="count"></span></div><br>
-    <%= f.input :author %>
     <%= f.button :submit %>
 <% end %>
 

@@ -7,7 +7,7 @@ Ever had a great idea and a convincing start, but you never could get the job do
 
 <% @books.each do |book| %>
     <div class="imagedropshadow">
-  Title: <%= book.title %>  <%= link_to "Show", book_path(book) %><br><br>
+  Title: <%= link_to book.title, book_path(book) %> <br><br>
       Description: <br>
   <%= book.description %><br>
   maximum amount of chapters: <%= book.maxnumchapt %><br>

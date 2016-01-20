@@ -2,7 +2,11 @@
     <div class="imagedropshadow">
       <%= @chapter.chaptertitle %><br>
       <%= @chapter.chaptercontent %> <%= @chapter.chaptercontent.length %><br>
-      <%= @chapter.author %><br>
-      <%= link_to "Edit", edit_book_chapter_path(@book, @chapter) %> |
-      <%= link_to "Delete", book_chapter_path(@book, @chapter), method: :delete, data: { confirm: "Are you sure?" } %>
+      <% @userchapter = User.find(@chapter.user_id) %>
+      Author: <%= @userchapter.username %>
+      <br>
+      <% if (current_user.id == @chapter.user_id) || (current_user.id == @book.user_id) %>
+        <%= link_to "Edit", edit_book_chapter_path(@book, @chapter) %> |
+        <%= link_to "Delete", book_chapter_path(@book, @chapter), method: :delete, data: { confirm: "Are you sure?" } %>
+      <% end %>
     </div>

@@ -1,15 +1,13 @@
 <div class="imagedropshadow">
-  <%= @book.title %><br>
+  <h1><%= @book.title %></h1><br>
   <%= @book.description %><br>
   <%= @user.username %><br>
   maximum amount of chapters: <%= @book.maxnumchapt %><br><br>
   <% if !maximum_reached? %>
-      Do you want to contribute? <%= link_to "Contribute", new_book_chapter_path(@book) %> <br>
-
-      <%= link_to "Edit", edit_book_path(@book)%>
-      <%= link_to "Delete", book_path(@book), method: :delete, data: { confirm: "Are you sure?" }%>
-      <br>
-
+      <% if current_user.id == @book.user_id %>
+        <%= link_to "Edit", edit_book_path(@book)%> |
+        <%= link_to "Delete", book_path(@book), method: :delete, data: { confirm: "Are you sure?" }%>
+      <% end %>
   <% else %>
       Book completed!
   <% end %>
@@ -22,7 +20,7 @@
     <div class="imagedropshadow">
     Chapter <%= i %>:
     <% if !@book.chapters.find_by_place(i).nil? %>
-          <%= @book.chapters.find_by_place(i).chaptertitle %>
+          <%= link_to @book.chapters.find_by_place(i).chaptertitle, book_chapter_path(@book, @book.chapters.find_by_place(i).id) %>
         <div class="imagedropshadow">
           <%= @book.chapters.find_by_place(i).chaptercontent %>
         </div>

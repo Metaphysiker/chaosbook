@@ -9,7 +9,9 @@ Ever had a great idea and a convincing start, but you never could get the job do
     <div class="imagedropshadow">
   Title: <%= link_to book.title, book_path(book) %> <br><br>
       Description: <br>
+      <div class="imagedropshadow">
   <%= book.description %><br>
+      </div>
   maximum amount of chapters: <%= book.maxnumchapt %><br>
     </div>
 <% end %>

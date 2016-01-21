@@ -35,6 +35,16 @@ class BooksController < ApplicationController
     end
   end
 
+  def finishedbooks
+    @books = Array.new
+    @booksy = Book.all
+    @booksy.each do |i|
+      if i.maxnumchapt == i.chapters.count
+        @books.push(i)
+      end
+    end
+  end
+
   def show
     @book = Book.find(params[:id])
     @user = User.find(@book.user_id)

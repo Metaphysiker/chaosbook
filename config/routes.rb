@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'tags/:tag', to: 'books#index', as: :tag
 
   get 'open/', to: 'books#openbooks', as: 'open'
+  get 'finished/', to: 'books#finishedbooks', as: 'finished'
 
   get '/:username' => 'users#show', as: 'profile'
 

@@ -7,8 +7,10 @@ class BooksController < ApplicationController
 
     if params[:tag].present?
       @books = Book.tagged_with(params[:tag]).paginate(:page => params[:page], :per_page => 12)
+      @taggy = "Show all books tagged with: " + params[:tag]
     else
       @books = Book.all.reverse_order.paginate(:page => params[:page], :per_page => 12)
+      @taggy = "Show all books"
     end
 
   end

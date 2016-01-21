@@ -3,7 +3,7 @@
 
 Ever had a great idea and a convincing start, but you never could get the job done? Let others finish your work!
 
-<h1>Show all chaosbooks</h1>
+<h1><%= @taggy %></h1>
 
 <% @books.each do |book| %>
     <div class="imagedropshadow">
@@ -21,4 +21,6 @@ Ever had a great idea and a convincing start, but you never could get the job do
       <% end %><br>
     </div>
 <% end %>
+
+<%= will_paginate @books %>
 

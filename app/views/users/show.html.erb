@@ -1,7 +1,10 @@
 <h1><%= @user.username %></h1>
 <div class="imagedropshadow">
 About me: <%= @user.about %><br>
-</div><br>
+</div>
+<% if current_user.id == @user.id %>
+    <%= link_to 'Edit profile', edit_user_registration_path %>
+<% end %><br><br>
 
 <table style="width:100%">
   <tr>
@@ -25,7 +28,4 @@ About me: <%= @user.about %><br>
       </table>
   </tr>
 </table>
-<br>
-<% if current_user.id == @user.id %>
-  <%= link_to 'Edit profile', edit_user_registration_path %>
-<% end %>
+

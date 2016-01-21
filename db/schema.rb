@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160121115137) do
+ActiveRecord::Schema.define(version: 20160121143858) do
 
   create_table "books", force: :cascade do |t|
     t.string   "title"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20160121115137) do
     t.integer  "max_length"
     t.integer  "user_id"
     t.datetime "frist"
+    t.integer  "workinguser"
   end
 
   create_table "chapters", force: :cascade do |t|

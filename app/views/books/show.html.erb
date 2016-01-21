@@ -26,10 +26,14 @@
         </div>
             <% @userchapter = User.find(@book.chapters.find_by_place(i).user_id) %>
             Author: <%= link_to @userchapter.username, profile_path(@userchapter.username) %>
-    <% else %>
+    <% elsif @book.frist > DateTime.now %>
         <div class="imagedropshadow">
-          No chapter written yet. Do you want to write it? <%= link_to "Contribute", chapterchapter_path(@book, i ) %>
-        </div>
+           A chapter is getting written right now! You can write the next chapter after <%= @book.frist %>
+          </div>
+          <% else %>
+          <div class="imagedropshadow">
+            No chapter written yet. Do you want to write it? <%= link_to "Contribute", chapterchapter_path(@book, i ) %>
+          </div>
     <% end %>
       </div>
     <% i = i + 1 %>

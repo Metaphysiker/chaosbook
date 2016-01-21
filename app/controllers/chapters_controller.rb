@@ -27,7 +27,7 @@ class ChaptersController < ApplicationController
         flash.now[:danger] = "Total amount of characters must be between #{@book.min_length} and #{@book.max_length}"
         render 'new'
       elsif @book.frist > DateTime.now
-        flash.now[:danger] = "A chapter is getting written right now! You can write your chapter after #{@book.frist}"
+        flash[:danger] = "A chapter is getting written right now! You can write your chapter after #{@book.frist}"
         redirect_to book_path(@book)
       else
         if @chapter.save

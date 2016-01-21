@@ -18,6 +18,7 @@ class BooksController < ApplicationController
   def create
     @book = Book.new(book_params)
     @book.user_id = current_user.id
+    @book.frist = DateTime.now - 2.years
 
     if @book.min_length >= @book.max_length
       flash.now[:danger] = "Min_length has to be shorter than max_length"
@@ -56,7 +57,6 @@ class BooksController < ApplicationController
       redirect_to root_path
     end
   end
-
 
   private
 

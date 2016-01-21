@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160120200439) do
+ActiveRecord::Schema.define(version: 20160121115137) do
 
   create_table "books", force: :cascade do |t|
     t.string   "title"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20160120200439) do
     t.integer  "min_length"
     t.integer  "max_length"
     t.integer  "user_id"
+    t.datetime "frist"
   end
 
   create_table "chapters", force: :cascade do |t|

@@ -28,6 +28,8 @@ class ChaptersController < ApplicationController
         render 'new'
       else
         if @chapter.save
+          @book.frist = DateTime.now + 1.day
+          @book.save
           flash.now[:success] = "Your Chapter got created!"
           redirect_to book_path(@book)
         else

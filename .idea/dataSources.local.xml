@@ -4,5 +4,8 @@
     <data-source name="Rails chaosbook: development" uuid="b8c93b12-eabc-437f-8c46-19cd15c43d61">
       <auth-required>false</auth-required>
     </data-source>
+    <data-source name="Rails chaosbook: test" uuid="e14de2fa-e322-445d-a317-5f480c9d3bc2">
+      <auth-required>false</auth-required>
+    </data-source>
   </component>
 </project>

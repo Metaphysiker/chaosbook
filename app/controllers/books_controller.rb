@@ -4,7 +4,6 @@ class BooksController < ApplicationController
 
   def index
 
-
     if params[:tag].present?
       @books = Book.tagged_with(params[:tag]).paginate(:page => params[:page], :per_page => 12)
       @taggy = "Show all books tagged with: " + params[:tag]
@@ -13,6 +12,27 @@ class BooksController < ApplicationController
       @taggy = "Show all books"
     end
 
+  end
+
+  def openbooks
+    @books = Array.new
+    if params[:tag].present?
+      @booksy = Book.tagged_with(params[:tag])
+      @booksy.each do |i|
+        if i.frist < DateTime.now
+          @books.push(i)
+        end
+      end
+      @taggy = "Show open books tagged with: " + params[:tag]
+    else
+      @booksy = Book.all.reverse_order
+      @booksy.each do |i|
+        if i.frist < DateTime.now
+          @books.push(i)
+        end
+      end
+      @taggy = "Show all open books"
+    end
   end
 
   def show
@@ -83,10 +103,6 @@ class BooksController < ApplicationController
     elsif @book.user_id == current_user.id
       return true
     end
-  end
-
-  def get_user
-
   end
 
 end

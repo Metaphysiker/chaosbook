@@ -1,0 +1,18 @@
+<h1><%= @taggy %></h1>
+
+<% @books.each do |book| %>
+    <div class="imagedropshadow">
+      Title: <%= link_to book.title, book_path(book) %> <br><br>
+      Description: <br>
+      <div class="imagedropshadow">
+        <%= book.description %><br>
+      </div>
+      maximum amount of chapters: <%= book.maxnumchapt %><br>
+      <% book.tags.any? %>
+      <% book.tags.each do |tag| %>
+     <span class="label label-teal">
+        <%= link_to tag.name, tag_path(tag.name) %>
+     </span>
+      <% end %><br>
+    </div>
+<% end %>

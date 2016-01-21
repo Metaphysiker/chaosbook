@@ -23,6 +23,7 @@
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
         <li class="passive"><%= link_to "Chaosbook", root_path %></li>
+        <li class="passive"><%= link_to "Open Books", open_path %></li>
         <% if user_signed_in? %>
           <li class="passive"><%= link_to "new Chaosbook", new_book_path %></li>
           <li class="passive"><%= link_to "My profile", profile_path(current_user.username) %></li>

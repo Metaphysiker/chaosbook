@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
   get 'tags/:tag', to: 'books#index', as: :tag
 
+  get 'open/', to: 'books#openbooks', as: 'open'
+
   get '/:username' => 'users#show', as: 'profile'
 
   get ':book_id/chapters/new(.:format)/:place' => 'chapters#new', as: 'chapterchapter'

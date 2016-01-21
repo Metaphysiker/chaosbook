@@ -3,7 +3,14 @@ class BooksController < ApplicationController
   before_action :authenticate_user!, only: [:edit, :update, :destroy]
 
   def index
-    @books = Book.all.reverse_order
+
+
+    if params[:tag].present?
+      @books = Book.tagged_with(params[:tag]).paginate(:page => params[:page], :per_page => 12)
+    else
+      @books = Book.all.reverse_order.paginate(:page => params[:page], :per_page => 12)
+    end
+
   end
 
   def show
@@ -61,7 +68,7 @@ class BooksController < ApplicationController
   private
 
   def book_params
-    params.require(:book).permit(:title, :description, :maxnumchapt, :min_length, :max_length)
+    params.require(:book).permit(:title, :description, :maxnumchapt, :min_length, :max_length, :tag_list)
   end
 
   def find_book

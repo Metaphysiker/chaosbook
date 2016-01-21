@@ -4,7 +4,13 @@
   <%= @book.description %><br>
   <%= link_to @user.username, profile_path(@user.username) %><br>
   </div>
-  maximum amount of chapters: <%= @book.maxnumchapt %><br><br>
+  maximum amount of chapters: <%= @book.maxnumchapt %><br>
+  <% @book.tags.any? %>
+  <% @book.tags.each do |tag| %>
+     <span class="label label-teal">
+        <%= link_to tag.name, tag_path(tag.name) %>
+     </span>
+  <% end %><br>
   <% if !maximum_reached? %>
       <% if current_user.id == @book.user_id %>
         <%= link_to "Edit", edit_book_path(@book)%> |

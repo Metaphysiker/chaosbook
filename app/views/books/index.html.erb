@@ -13,6 +13,12 @@ Ever had a great idea and a convincing start, but you never could get the job do
   <%= book.description %><br>
       </div>
   maximum amount of chapters: <%= book.maxnumchapt %><br>
+      <% book.tags.any? %>
+      <% book.tags.each do |tag| %>
+     <span class="label label-teal">
+        <%= link_to tag.name, tag_path(tag.name) %>
+     </span>
+      <% end %><br>
     </div>
 <% end %>
 

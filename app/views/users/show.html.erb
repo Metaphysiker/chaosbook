@@ -3,9 +3,7 @@
 About me: <%= @user.about %><br>
 </div>
 <% if user_signed_in? && (current_user.id == @user.id) %>
-
-      <%= link_to 'Edit profile', edit_user_registration_path %>
-
+    <%= link_to 'Edit profile', edit_user_registration_path %>
 <% end %><br><br>
 
 <table style="width:100%">

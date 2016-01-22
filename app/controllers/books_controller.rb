@@ -55,6 +55,7 @@ class BooksController < ApplicationController
   end
 
   def create
+    params[:book][:tag_list] = params[:book][:tag_list].join(',')
     @book = Book.new(book_params)
     @book.user_id = current_user.id
     @book.frist = DateTime.now - 2.years

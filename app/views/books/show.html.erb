@@ -12,9 +12,11 @@
      </span>
   <% end %><br>
   <% if !maximum_reached? %>
-      <% if current_user.id == @book.user_id %>
-        <%= link_to "Edit", edit_book_path(@book)%> |
-        <%= link_to "Delete", book_path(@book), method: :delete, data: { confirm: "Are you sure?" }%>
+      <% if !current_user.nil? %>
+        <% if current_user.id == @book.user_id %>
+          <%= link_to "Edit", edit_book_path(@book)%> |
+          <%= link_to "Delete", book_path(@book), method: :delete, data: { confirm: "Are you sure?" }%>
+        <% end %>
       <% end %>
   <% else %>
       Book completed!<br>
@@ -38,7 +40,12 @@
           </div>
           <% else %>
           <div class="imagedropshadow">
-            No chapter written yet. Do you want to write it? <%= link_to "Contribute", chapterchapter_path(@book, i ) %>
+            No chapter written yet. Do you want to write it?
+            <% if user_signed_in? %>
+              <%= link_to "Contribute", chapterchapter_path(@book, i ) %>
+            <% else %>
+                <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "Login", new_user_session_path %>
+             <% end %>
           </div>
     <% end %>
       </div>

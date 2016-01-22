@@ -81,6 +81,7 @@ class BooksController < ApplicationController
   end
 
   def update
+    params[:book][:tag_list] = params[:book][:tag_list].join(',')
     if @book.update(book_params)
       redirect_to book_path(@book)
     else

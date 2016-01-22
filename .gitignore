@@ -16,3 +16,6 @@
 !/log/.keep
 /tmp
 .idea
+public/uploads
+tmp
+logs

@@ -4,7 +4,6 @@
     <%= f.input :maxnumchapt %>
     <%= f.input :min_length %>
     <%= f.input :max_length %>
-    <%= f.label :tags, "Tags (separated by commas)" %>
     <%= f.input :tag_list, as: :check_boxes, collection: ['Logik', 'Ethik', 'Metaphysik'] %><br>
     <%= f.button :submit %>
 <% end %>

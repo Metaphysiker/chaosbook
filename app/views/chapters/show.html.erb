@@ -1,7 +1,7 @@
 
     <div class="imagedropshadow">
       <%= @chapter.chaptertitle %><br>
-      <%= @chapter.chaptercontent %> <%= @chapter.chaptercontent.length %><br>
+      <%= simple_format(@chapter.chaptercontent) %> <%= @chapter.chaptercontent.length %><br>
       <% @userchapter = User.find(@chapter.user_id) %>
       Author: <%= link_to @userchapter.username, profile_path(@userchapter.username) %>
       <br>

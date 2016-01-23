@@ -1,0 +1,82 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+ */
+/* line 18, /Users/danieloechslin/Documents/workspace/chaosbook/app/assets/stylesheets/application.scss */
+body {
+  padding-top: 100px;
+  background-image: url("bg.jpg");
+  background-attachment: fixed;
+  background-size: 100%;
+}
+
+/* line 22, /Users/danieloechslin/Documents/workspace/chaosbook/app/assets/stylesheets/application.scss */
+footer {
+  margin-top: 10px;
+}
+
+/* line 23, /Users/danieloechslin/Documents/workspace/chaosbook/app/assets/stylesheets/application.scss */
+table, td, th {
+  vertical-align: middle;
+  border: none;
+}
+
+/* line 24, /Users/danieloechslin/Documents/workspace/chaosbook/app/assets/stylesheets/application.scss */
+th {
+  border-bottom: 1px solid #DDD;
+}
+
+/* line 27, /Users/danieloechslin/Documents/workspace/chaosbook/app/assets/stylesheets/application.scss */
+.bookindex {
+  background-color: gray;
+  padding: 5px;
+  margin: 5px;
+  width: 25%;
+}
+
+/* line 34, /Users/danieloechslin/Documents/workspace/chaosbook/app/assets/stylesheets/application.scss */
+.mainbox {
+  width: 70%;
+  background: linear-gradient(to bottom right, white, #E8E8E8);
+  border-radius: 15px;
+  padding: 8px;
+  margin: 5px;
+  border: solid 3px #E8E8E8;
+}
+
+/* line 43, /Users/danieloechslin/Documents/workspace/chaosbook/app/assets/stylesheets/application.scss */
+.imagedropshadow {
+  width: 95%;
+  background: linear-gradient(to bottom right, white, #E8E8E8);
+  border-radius: 15px;
+  padding: 8px;
+  margin: 10px;
+  border: solid 3px #E8E8E8;
+}
+
+/* line 51, /Users/danieloechslin/Documents/workspace/chaosbook/app/assets/stylesheets/application.scss */
+a:hover img.imagedropshadow {
+  border: solid 1px #CCC;
+  -moz-box-shadow: 1px 1px 5px #999;
+  -webkit-box-shadow: 1px 1px 5px #999;
+  box-shadow: 1px 1px 5px #999;
+}
+
+/* line 58, /Users/danieloechslin/Documents/workspace/chaosbook/app/assets/stylesheets/application.scss */
+.profiletabelle {
+  border-collapse: collapse;
+  padding: 5px;
+  text-align: left;
+  padding-right: 10px;
+}

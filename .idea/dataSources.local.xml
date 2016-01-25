@@ -7,5 +7,8 @@
     <data-source name="Rails chaosbook: test" uuid="e14de2fa-e322-445d-a317-5f480c9d3bc2">
       <auth-required>false</auth-required>
     </data-source>
+    <data-source name="Rails chaosbook: production" uuid="a4b342f8-7cae-4dd3-a086-ed901b0f10b8">
+      <first-sync>true</first-sync>
+    </data-source>
   </component>
 </project>

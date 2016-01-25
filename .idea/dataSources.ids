@@ -95,4 +95,7 @@
     <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed"/>
     <schema name="" catalog=""/>
   </data-source>
+  <data-source name="Rails chaosbook: production" uuid="a4b342f8-7cae-4dd3-a086-ed901b0f10b8">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
 </component>
